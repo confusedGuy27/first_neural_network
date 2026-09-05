@@ -1,6 +1,6 @@
 Multi-Layer Perceptron From Scratch
 
-A simple multi-layer neural network (MLP) built from scratch in Python using only NumPy — no PyTorch, no TensorFlow. It classifies points on a 2D plot into multiple classes, and plots the loss and accuracy as it trains.
+A simple multi-layer neural network (MLP) built from scratch in Python using only NumPy — no PyTorch, no TensorFlow. It classifies points on a 2D plot into multiple classes, and plots the loss and accuracy as it trains. there is also a graph named loss_acc.png what will show you what the loss and accuracy look like through out the training 
 
 Uses SGD with momentum. Trained on the nnfs spiral dataset.
 
