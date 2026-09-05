@@ -1,1 +1,17 @@
-this is a MYP simple neural network that uses SGD with momentum, that classes points on a plot. The training and test files only have 3 classes. the most i have gotten the accuracy up to 93% on the training, and when tested it has 1-7 point of differences to the training. but i only have a CPU so it is hard to run higher amount of samples and classes to get higher accuracy and to minimize over overfitting 
+Multi-Layer Perceptron From Scratch
+
+A simple multi-layer neural network (MLP) built from scratch in Python using only NumPy — no PyTorch, no TensorFlow. It classifies points on a 2D plot into multiple classes, and plots the loss and accuracy as it trains.
+
+Uses SGD with momentum. Trained on the nnfs spiral dataset.
+
+Results
+Training accuracy: ~92–93%
+Test accuracy: ~86–91%
+Known limitations
+The spiral dataset has overlapping points near the center, which makes it harder for the network to learn a clean boundary.
+Currently trained on CPU only, so it's hard to scale up to bigger datasets for now.
+
+Usage
+pip install numpy nnfs matplotlib
+python train.py
+python predict.py
