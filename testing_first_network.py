@@ -81,3 +81,5 @@ for i in range(times_to_run):
     pred = np.argmax(actviaion3.output, axis=1)
     accuracy = np.mean(pred == y)
     print("loss:", loss ,"acc", accuracy)
+    
+    

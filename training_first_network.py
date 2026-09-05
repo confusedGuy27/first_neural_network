@@ -2,8 +2,11 @@ import numpy as np
 import nnfs
 from nnfs.datasets import spiral_data
 import random
+import matplotlib.pyplot as plt
+loss_history = []
+acc_history = []
 nnfs.init()
-
+#myp
 seed_number = random.randint(0,10000)
 np.random.seed(seed_number)
 
@@ -98,7 +101,7 @@ dense2 = Layer_Dense(32,32)
 activation2 = Activation()
 dense3 = Layer_Dense(32,3)
 actviaion3 = softmax()
-optimizer = SGD(learning_rate = 0.2,decay=1e-4,weight_decay=3e-5, momentum=0.9)
+optimizer = SGD(learning_rate = 0.4,decay=0.5e-4,weight_decay=3e-5, momentum=0.9)
 loss_fun = loss_log()
 
 best_acc = 0
@@ -138,6 +141,8 @@ for epoch in range(40000):
     if accuracy >= best_acc:
         best_acc = accuracy
         best_epoch = epoch
+    loss_history.append(loss)
+    acc_history.append(accuracy)
 print("accuracy",best_acc)
 print("epoch",best_epoch)
 np.savez(
@@ -146,5 +151,15 @@ np.savez(
     dense2_weights=dense2.weights, dense2_biases=dense2.biases,
     dense3_weights=dense3.weights, dense3_biases=dense3.biases,
 )
-print("Saved weights to model_weights.npz")
+print("Saved weights to model_weights_2.npz")
+fig,ax1 = plt.subplots()
+ax1.plot(loss_history, color= "red",label="loss")
+ax1.set_xlabel("epoch")
+ax1.set_xlabel("loss",color= "red")
+ax2= ax1.twinx()
+ax2.plot(acc_history, color= "blue",label="accuracy")
+ax2.set_ylabel("accuracy")
+ax2.set_ylabel("accuracy",color= "blue")
 
+plt.title("training loss & accuracy")
+plt.show()
